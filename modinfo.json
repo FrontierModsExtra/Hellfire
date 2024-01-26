@@ -1,0 +1,17 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "hellfire",
+
+    "name": "Hellfire",
+    "description": "Lets you call in drone strikes on a location",
+
+    "authors": ["Hyperseeker"],
+
+    "category": "items",
+
+    "dependencies": ["dda"],
+
+    "path": "json"
+  }
+]
