@@ -1,0 +1,123 @@
+[
+  {
+    "id": "tablet_military_hellfire",
+    "type": "TOOL",
+    "category": "tools",
+
+    "//sources": [
+      "https://www.getac.com/intl/products/tablets/zx10/",
+      [
+        "https://www.laptopmag.com/reviews/getac-zx10-rugged-tablet-review",
+        "price"
+      ]
+    ],
+
+    "//notes": [
+      "power draw and capacity numbers are not based on any concrete data currently",
+      "instead, it's modelled as a rough average value between the in-game e-ink tablet and laptop"
+    ],
+
+    "name": {
+      "str": "military tablet"
+    },
+    "description": "A rugged military tablet with physical buttons, a touch-capable screen, and high resistance to all manners of damage.  These would be used to communicate and take notes in the field.  This one is marked with the words \"MQ-9 REAPER AUTHORIZED\" printed on a piece of paper in one of the corners on the front of the frame.  Activate to turn on.",
+
+    "//weight": "2.29 lbs = 1038.7 g",
+    "weight": "1039 g",
+    "//dimensions": {
+      "length": "275 mm",
+      "width": "192 mm",
+      "height": "17.9 mm",
+      "raw": "945.12 ml",
+      "trim": 0.0125
+    },
+    "volume": "933 ml",
+    "longest_side": "275 mm",
+
+    "symbol": ";",
+    "color": "dark_gray",
+
+    "material": ["plastic", "aluminum"],
+
+    "melee_damage": {
+      "bash": 6
+    },
+
+    "ammo": ["battery"],
+
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "rigid": true,
+
+        "ammo_restriction": {
+          "battery": 300
+        }
+      }
+    ],
+
+    "use_action": [
+      {
+        "type": "transform",
+        "target": "tablet_military_hellfire_on",
+
+        "menu_text": "Turn on",
+        "msg": "You turn the tablet on.",
+
+        "active": true,
+        "need_charges": 1,
+        "need_charges_msg": "The tablet needs more charge to turn on."
+      },
+      {
+        "type": "link_up",
+        "cable_length": 1,
+        "charge_rate": "60 W"
+      }
+    ],
+
+    "flags": [
+      "WATER_BREAK",
+      "ELECTRONIC",
+      "ALLOWS_REMOTE_USE",
+      "USE_UPS",
+      "NO_UNLOAD",
+      "NO_RELOAD"
+    ],
+
+    "price": "1986 USD",
+    "price_postapoc": "100 USD"
+  },
+  {
+    "id": "tablet_military_hellfire_on",
+    "copy-from": "tablet_military_hellfire",
+    "type": "TOOL",
+    "category": "tools",
+
+    "name": {
+      "str": "military tablet (on)",
+      "str_pl": "military tablets (on)"
+    },
+    "description": "A rugged military tablet with physical buttons, a touch-capable screen, and high resistance to all manners of damage.  These would be used to communicate and take notes in the field.  This one is marked with the words \"MQ-9 REAPER AUTHORIZED\" printed on a piece of paper in one of the corners on the front of the frame.  It is currently on.  Activate to turn off.",
+
+    "power_draw": "7 W",
+
+    "use_action": [
+      {
+        "type": "transform",
+        "target": "tablet_military_hellfire",
+
+        "menu_text": "Turn off",
+        "msg": "You turn the tablet off.",
+
+        "ammo_scale": 0
+      },
+      {
+        "type": "link_up",
+        "cable_length": 1,
+        "charge_rate": "60 W"
+      }
+    ],
+
+    "extend": { "flags": ["LIGHT_25", "TRADER_AVOID", "WATCH"] }
+  }
+]
