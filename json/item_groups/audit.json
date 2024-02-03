@@ -1,0 +1,11 @@
+[
+  {
+    "id": "infantry_officer_gear",
+    "type": "item_group",
+    "subtype": "collection",
+
+    "extend": {
+      "entries": [{ "group": "hellfire_tablet_with_contents", "prob": 5 }]
+    }
+  }
+]

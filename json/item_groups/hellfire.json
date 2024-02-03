@@ -1,0 +1,34 @@
+[
+  {
+    "id": "hellfire_tablet_contents",
+    "type": "item_group",
+    "subtype": "collection",
+
+    "entries": [
+      {
+        "item": "hellfire_designator_explosive",
+        "container-item": "null",
+        "count": [1, 4]
+      },
+      {
+        "item": "hellfire_designator_incendiary",
+        "count": [0, 2],
+        "container-item": "null",
+        "prob": 40
+      }
+    ]
+  },
+  {
+    "id": "hellfire_tablet_with_contents",
+    "type": "item_group",
+    "subtype": "collection",
+
+    "items": [
+      {
+        "item": "tablet_military_hellfire",
+        "charges": [79, 300],
+        "contents-group": "hellfire_tablet_contents"
+      }
+    ]
+  }
+]
