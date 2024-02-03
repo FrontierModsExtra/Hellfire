@@ -1,0 +1,128 @@
+[
+  {
+    "id": "hellfire_designator_explosive",
+    "type": "GENERIC",
+
+    "name": {
+      "str": "laser designator: AGM-114R",
+      "str_pl": "laser designators: AGM-114R"
+    },
+    "description": "Laser designation for AGM-114R Hellfire II HEAT missile.  Activate the designate the location for the strike.  After a few seconds, the explosive missile will hit the mark, severely damaging the surrounding area and anyone inside its significant kill radius.  Users are advised to seek hard shelter if they're danger close to the target.",
+
+    "symbol": "*",
+    "color": "red",
+
+    "weight": "0 g",
+    "volume": "0 ml",
+
+    "use_action": [
+      {
+        "type": "effect_on_conditions",
+        "description": "Designate HEAT strike location",
+
+        "menu_text": "Designate HEAT strike location",
+
+        "effect_on_conditions": [
+          {
+            "id": "hellfire_activate_designator_explosive",
+            "effect": [
+              {
+                "run_eoc_with": "EOC_hellfire_designate_target",
+                "variables": {
+                  "missile": "hellfire_agm_114r",
+                  "designator": "hellfire_designator_explosive"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "flags": ["ZERO_WEIGHT"]
+  },
+  {
+    "id": "hellfire_designator_incendiary",
+    "type": "GENERIC",
+
+    "name": {
+      "str": "laser designator: AGM-114N",
+      "str_pl": "laser designators: AGM-114N"
+    },
+    "description": "Laser designation for AGM-114N Hellfire thermobaric missile.  Activate the designate the location for the strike.  After a few seconds, the incendiary missile will hit the mark, setting a large area around it on fire.  Users are advised to maintain their distance from the target.",
+
+    "symbol": "*",
+    "color": "red",
+
+    "weight": "0 g",
+    "volume": "0 ml",
+
+    "use_action": [
+      {
+        "type": "effect_on_conditions",
+        "description": "Designate thermobatic strike location",
+
+        "menu_text": "Designate thermobatic strike location",
+
+        "effect_on_conditions": [
+          {
+            "id": "hellfire_activate_designator_incendiary",
+            "effect": [
+              {
+                "run_eoc_with": "EOC_hellfire_designate_target",
+                "variables": {
+                  "missile": "hellfire_agm_114n",
+                  "designator": "hellfire_designator_incendiary"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "flags": ["ZERO_WEIGHT"]
+  },
+  {
+    "id": "hellfire_designator_single_target",
+    "type": "GENERIC",
+
+    "name": {
+      "str": "laser designator: AGM-114R9X",
+      "str_pl": "laser designators: AGM-114R9X"
+    },
+    "description": "Laser designation for AGM-114R9X Hellfire kinetic missile.  Activate the designate the target for the strike.  After a few seconds, the kinetic missile will hit the mark, dealing heavy damage and likely killing it.  The missile isn't explosive, so collateral damage is not expected.",
+
+    "symbol": "*",
+    "color": "red",
+
+    "weight": "0 g",
+    "volume": "0 ml",
+
+    "use_action": [
+      {
+        "type": "effect_on_conditions",
+        "description": "Designate strike location",
+
+        "menu_text": "Designate strike target",
+
+        "effect_on_conditions": [
+          {
+            "id": "hellfire_activate_designator_single_target",
+            "effect": [
+              {
+                "run_eoc_with": "EOC_hellfire_designate_target",
+                "variables": {
+                  "missile": "hellfire_agm_114r9x",
+                  "designator": "hellfire_designator_single_target"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "flags": ["ZERO_WEIGHT"]
+  }
+]
