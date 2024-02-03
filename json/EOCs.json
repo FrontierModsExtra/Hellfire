@@ -23,9 +23,9 @@
         ],
         "keys": ["a", "b", "c"],
         "descriptions": [
-          "Designate target",
-          "Launch explosive missile",
-          "Launch thermobaric missile"
+          "Mark a location for the subsequent strike with a Hellfire missile",
+          "Order an explosive missile on the designated location",
+          "Order an incendiary missile on the designated location"
         ],
         "allow_cancel": true
       }
