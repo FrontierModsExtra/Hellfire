@@ -48,11 +48,80 @@
     "pocket_data": [
       {
         "pocket_type": "MAGAZINE",
+
         "rigid": true,
 
         "ammo_restriction": {
           "battery": 300
         }
+      },
+
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": ["hellfire_designator_explosive"]
+      },
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": ["hellfire_designator_explosive"]
+      },
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": ["hellfire_designator_explosive"]
+      },
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": ["hellfire_designator_explosive"]
+      },
+
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": [
+          "hellfire_designator_incendiary",
+          "hellfire_designator_single_target"
+        ]
+      },
+      {
+        "pocket_type": "CONTAINER",
+
+        "rigid": true,
+
+        "max_contains_weight": "1 g",
+        "max_contains_volume": "1 ml",
+
+        "item_restriction": [
+          "hellfire_designator_incendiary",
+          "hellfire_designator_single_target"
+        ]
       }
     ],
 
@@ -81,7 +150,7 @@
       "ALLOWS_REMOTE_USE",
       "USE_UPS",
       "NO_UNLOAD",
-      "NO_RELOAD"
+      "TARDIS"
     ],
 
     "price": "1986 USD",
@@ -99,7 +168,7 @@
     },
     "description": "A rugged military tablet with physical buttons, a touch-capable screen, and high resistance to all manners of damage.  These would be used to communicate and take notes in the field.  This one is marked with the words \"MQ-9 REAPER AUTHORIZED\" printed on a piece of paper in one of the corners on the front of the frame.  It is currently on.  Activate to turn off.",
 
-    "power_draw": "7 W",
+    "power_draw": "2 W",
 
     "use_action": [
       {
@@ -114,10 +183,10 @@
       {
         "type": "link_up",
         "cable_length": 1,
-        "charge_rate": "60 W"
+        "charge_rate": "20 W"
       }
     ],
 
-    "extend": { "flags": ["LIGHT_25", "TRADER_AVOID", "WATCH"] }
+    "extend": { "flags": ["LIGHT_10", "WATCH"] }
   }
 ]
