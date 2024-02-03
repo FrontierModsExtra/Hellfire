@@ -123,7 +123,7 @@
 
     "condition": {
       "and": [
-        { "u_has_item": "hellfire_designator_explosive" },
+        { "u_has_item": "hellfire_designator_incendiary" },
         {
           "not": {
             "compare_string": [{ "global_val": "hellfire_strike_location" }, ""]
