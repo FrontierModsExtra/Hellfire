@@ -1,0 +1,118 @@
+[
+  {
+    "id": "hellfire_agm_114r",
+    "type": "TOOL",
+    "category": "weapons",
+
+    "//sources": ["https://en.wikipedia.org/wiki/AGM-114_Hellfire"],
+
+    "name": {
+      "str": "AGM-114R Hellfire II"
+    },
+    "description": "This item is used to produce Hellfire missile explosions.  It should not otherwise appear in game.",
+
+    "weight": "49 kg",
+    "//dimensions": {
+      "length": "71 in",
+      "diameter": "7 in",
+      "raw": "44776.01 ml",
+      "trim": -0.0125,
+      "notes": ["trim for fins sticking out"]
+    },
+    "volume": "45336 ml",
+    "longest_side": "1803 mm",
+
+    "to_hit": -5,
+    "melee_damage": {
+      "bash": 40
+    },
+
+    "material": ["steel"],
+
+    "symbol": "(",
+    "color": "light_red",
+
+    "countdown_interval": "1 seconds",
+    "explode_in_fire": true,
+
+    "explosion": {
+      "power": 45000,
+      "shrapnel": {
+        "casing_mass": 45000,
+        "fragment_mass": 37,
+        "recovery": 10,
+        "drop": "steel_chunk"
+      }
+    },
+
+    "countdown_action": {
+      "type": "explosion",
+      "explosion": {
+        "power": 45000,
+        "shrapnel": {
+          "casing_mass": 45000,
+          "fragment_mass": 1.4,
+          "recovery": 10,
+          "drop": "steel_chunk"
+        }
+      }
+    },
+
+    "flags": ["BOMB", "SPAWN_ACTIVE", "TRADER_AVOID"],
+
+    "price": "150000 USD"
+  },
+  {
+    "id": "hellfire_agm_114n",
+    "type": "TOOL",
+    "category": "weapons",
+
+    "//sources": ["https://en.wikipedia.org/wiki/AGM-114_Hellfire"],
+
+    "name": {
+      "str": "AGM-114N Hellfire"
+    },
+    "description": "This item is used to produce incendiary Hellfire missile explosions.  It should not otherwise appear in game.",
+
+    "weight": "48 kg",
+    "//dimensions": {
+      "length": "64 in",
+      "diameter": "7.1 in",
+      "raw": "41522.90 ml",
+      "trim": -0.0125,
+      "notes": ["trim for fins sticking out"]
+    },
+    "volume": "42042 ml",
+    "longest_side": "1626 mm",
+
+    "to_hit": -5,
+    "melee_damage": {
+      "bash": 40
+    },
+
+    "material": ["steel"],
+
+    "symbol": "(",
+    "color": "light_red",
+
+    "countdown_interval": "1 seconds",
+    "explode_in_fire": true,
+
+    "explosion": {
+      "power": 36000,
+      "fire": true
+    },
+
+    "countdown_action": {
+      "type": "explosion",
+      "explosion": {
+        "power": 36000,
+        "fire": true
+      }
+    },
+
+    "flags": ["BOMB", "SPAWN_ACTIVE", "TRADER_AVOID"],
+
+    "price": "150000 USD"
+  }
+]
