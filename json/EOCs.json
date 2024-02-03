@@ -23,7 +23,7 @@
         ],
         "keys": ["a", "b", "c"],
         "descriptions": [
-          "Mark a location for the subsequent strike with a Hellfire missile",
+          "Mark a location for the subsequent Hellfire missile strike",
           "Order an explosive missile on the designated location",
           "Order an incendiary missile on the designated location"
         ],
@@ -43,7 +43,7 @@
           "range": 60,
           "z_level": true,
           "target_var": { "global_val": "hellfire_strike_location" },
-          "message": "Designate target"
+          "message": "Designate strike location"
         },
         "then": {
           "u_message": "Coordinates confirmed: <global_val:hellfire_strike_location>"
