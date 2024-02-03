@@ -1,0 +1,160 @@
+[
+  {
+    "id": "EOC_hellfire_tablet",
+    "type": "effect_on_condition",
+
+    "//": [
+      "ideally, this should be the way to handling coordinates and launches",
+      "currently unimplementable due to a lack of way to track charges/ammo/launches per tablet without relying on items",
+      "each tablet is supposed to be authorized to fire from a separate drone"
+    ],
+
+    "effect": [
+      {
+        "run_eoc_selector": [
+          "EOC_hellfire_set_position",
+          "EOC_hellfire_fire_missile_explosive",
+          "EOC_hellfire_fire_missile_incendiary"
+        ],
+        "names": [
+          "Designate target",
+          "Launch HEAT missile",
+          "Launch thermobaric missile"
+        ],
+        "keys": ["a", "b", "c"],
+        "descriptions": [
+          "Designate target",
+          "Launch explosive missile",
+          "Launch thermobaric missile"
+        ],
+        "allow_cancel": true
+      }
+    ]
+  },
+
+  {
+    "id": "EOC_hellfire_set_position",
+    "type": "effect_on_condition",
+
+    "effect": [
+      {
+        "if": {
+          "u_query_tile": "line_of_sight",
+          "range": 60,
+          "z_level": true,
+          "target_var": { "global_val": "hellfire_strike_location" },
+          "message": "Designate target"
+        },
+        "then": {
+          "u_message": "Coordinates confirmed: <global_val:hellfire_strike_location>"
+        },
+        "else": { "u_message": "You cancel target designation." }
+      }
+    ]
+  },
+
+  {
+    "id": "EOC_hellfire_spawn_missile",
+    "type": "effect_on_condition",
+
+    "condition": { "expects_vars": ["missile"] },
+    "effect": {
+      "map_spawn_item": { "context_val": "missile" },
+      "loc": { "global_val": "hellfire_strike_location" }
+    }
+  },
+
+  {
+    "id": "EOC_hellfire_designate_target",
+    "type": "effect_on_condition",
+
+    "//notes": [
+      "with an operational altitude of 7600 meters, and the missile travelling at Mach 1.3, the missile should reach the target after 17 seconds",
+      "we add a slight bit of variability for gameplay purposes"
+    ],
+
+    "//TODO": [
+      "prevent acquiring coordinates if the target is underground (Z-level < 0) AND EITHER there are hard tiles above it (laser can't reach the drone) OR it is underwater (laser too dispersed for precise coordiantes)"
+    ],
+
+    "condition": { "expects_vars": ["missile", "designator"] },
+    "effect": [
+      {
+        "if": {
+          "u_query_tile": "line_of_sight",
+          "range": 60,
+          "z_level": true,
+          "target_var": { "global_val": "hellfire_strike_location" },
+          "message": "Designate target"
+        },
+        "then": {
+          "if": { "math": ["u_val('pos_z')", ">=", "0"] },
+          "then": {
+            "if": {
+              "u_can_see_location": { "global_val": "hellfire_strike_location" }
+            },
+            "then": [
+              {
+                "u_message": "The tablet displays: \"Coordinates confirmed. Missile out.\"."
+              },
+              {
+                "u_message": "Underneath, there's a large text in red: \"WARNING: DANGER CLOSE, SEEK SHELTER\""
+              },
+              {
+                "if": {
+                  "or": [
+                    {
+                      "and": [
+                        "u_is_outside",
+                        { "math": ["u_val('perception')", ">", "20"] }
+                      ]
+                    },
+                    { "math": ["u_val('perception')", ">", "22"] }
+                  ]
+                },
+                "then": {
+                  "u_message": "You hear a faint harshly-hissing sound from above, like someone lighting a match."
+                }
+              },
+              { "u_consume_item": { "context_val": "designator" } },
+              {
+                "queue_eoc_with": "EOC_hellfire_spawn_missile",
+                "time_in_future": ["16 seconds", "18 seconds"],
+                "variables": {
+                  "missile": { "context_val": "missile" }
+                }
+              }
+            ],
+            "else": [
+              {
+                "u_message": "Failed to acquire target. Location must be within your direct line of sight.",
+                "popup": true
+              },
+              {
+                "run_eoc_with": "EOC_hellfire_designate_target",
+                "variables": {
+                  "missile": { "context_val": "missile" },
+                  "designator": { "context_val": "designator" }
+                }
+              }
+            ]
+          },
+          "else": [
+            {
+              "u_message": "Failed to acquire target. Location must be visible from the sky.",
+              "popup": true
+            },
+            {
+              "run_eoc_with": "EOC_hellfire_designate_target",
+              "variables": {
+                "missile": { "context_val": "missile" },
+                "designator": { "context_val": "designator" }
+              }
+            }
+          ]
+        },
+        "else": [{ "u_message": "You cancel target designation." }]
+      }
+    ]
+  }
+]
