@@ -46,9 +46,102 @@
           "message": "Designate strike location"
         },
         "then": {
-          "u_message": "Coordinates confirmed: <global_val:hellfire_strike_location>"
+          "if": { "math": ["u_val('pos_z')", ">=", "0"] },
+          "then": {
+            "if": {
+              "u_can_see_location": {
+                "global_val": "hellfire_strike_location"
+              }
+            },
+            "then": {
+              "u_message": "The screen flashes a notification: \"Coordinates confirmed: <global_val:hellfire_strike_location>, awaiting orders\"."
+            },
+            "else": [
+              {
+                "u_message": "Failed to acquire target. Location must be within your direct line of sight.",
+                "popup": true
+              },
+              {
+                "set_string_var": "",
+                "target_var": { "global_val": "hellfire_strike_location" }
+              },
+              {
+                "run_eocs": "EOC_hellfire_set_position"
+              }
+            ]
+          },
+          "else": [
+            {
+              "u_message": "Failed to acquire target. Location must be visible from the sky.",
+              "popup": true
+            },
+            {
+              "set_string_var": "",
+              "target_var": { "global_val": "hellfire_strike_location" }
+            },
+            {
+              "run_eocs": "EOC_hellfire_set_position"
+            }
+          ]
         },
         "else": { "u_message": "You cancel target designation." }
+      }
+    ]
+  },
+
+  {
+    "id": "EOC_hellfire_fire_missile_explosive",
+    "type": "effect_on_condition",
+
+    "condition": {
+      "and": [
+        { "u_has_item": "hellfire_designator_explosive" },
+        {
+          "not": {
+            "compare_string": [{ "global_val": "hellfire_strike_location" }, ""]
+          }
+        }
+      ]
+    },
+    "effect": [
+      { "u_consume_item": "hellfire_designator_explosive" },
+      {
+        "u_message": "The screen flashes a notification: \"Missile strike confirmed, missile out. WARNING: DANGER CLOSE, SEEK SHELTER\"."
+      },
+      {
+        "queue_eoc_with": "EOC_hellfire_spawn_missile",
+        "time_in_future": ["16 seconds", "18 seconds"],
+        "variables": {
+          "missile": "hellfire_agm_114r"
+        }
+      }
+    ]
+  },
+  {
+    "id": "EOC_hellfire_fire_missile_incendiary",
+    "type": "effect_on_condition",
+
+    "condition": {
+      "and": [
+        { "u_has_item": "hellfire_designator_explosive" },
+        {
+          "not": {
+            "compare_string": [{ "global_val": "hellfire_strike_location" }, ""]
+          }
+        }
+      ]
+    },
+    "effect": [
+      { "u_consume_item": "hellfire_designator_incendiary" },
+      {
+        "u_message": "The screen flashes a notification: \"Incendiary strike confirmed, missile out. WARNING: DANGER CLOSE, SEEK SHELTER\"."
+      },
+      {
+        "queue_eoc_with": "EOC_hellfire_spawn_missile",
+        "time_in_future": ["16 seconds", "18 seconds"],
+        "variables": {
+          "missile": "hellfire_agm_114n"
+        }
       }
     ]
   },

@@ -184,6 +184,14 @@
         "type": "link_up",
         "cable_length": 1,
         "charge_rate": "20 W"
+      },
+      {
+        "type": "effect_on_conditions",
+        "description": "Access MQ-9 Reaper",
+
+        "menu_text": "Access MQ-9 Reaper",
+
+        "effect_on_conditions": ["EOC_hellfire_tablet"]
       }
     ],
 

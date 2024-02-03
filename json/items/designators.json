@@ -15,30 +15,6 @@
     "weight": "0 g",
     "volume": "0 ml",
 
-    "use_action": [
-      {
-        "type": "effect_on_conditions",
-        "description": "Designate HEAT strike location",
-
-        "menu_text": "Designate HEAT strike location",
-
-        "effect_on_conditions": [
-          {
-            "id": "hellfire_activate_designator_explosive",
-            "effect": [
-              {
-                "run_eoc_with": "EOC_hellfire_designate_target",
-                "variables": {
-                  "missile": "hellfire_agm_114r",
-                  "designator": "hellfire_designator_explosive"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-
     "flags": ["ZERO_WEIGHT"]
   },
   {
@@ -57,30 +33,6 @@
     "weight": "0 g",
     "volume": "0 ml",
 
-    "use_action": [
-      {
-        "type": "effect_on_conditions",
-        "description": "Designate thermobatic strike location",
-
-        "menu_text": "Designate thermobatic strike location",
-
-        "effect_on_conditions": [
-          {
-            "id": "hellfire_activate_designator_incendiary",
-            "effect": [
-              {
-                "run_eoc_with": "EOC_hellfire_designate_target",
-                "variables": {
-                  "missile": "hellfire_agm_114n",
-                  "designator": "hellfire_designator_incendiary"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-
     "flags": ["ZERO_WEIGHT"]
   },
   {
@@ -98,30 +50,6 @@
 
     "weight": "0 g",
     "volume": "0 ml",
-
-    "use_action": [
-      {
-        "type": "effect_on_conditions",
-        "description": "Designate strike location",
-
-        "menu_text": "Designate strike target",
-
-        "effect_on_conditions": [
-          {
-            "id": "hellfire_activate_designator_single_target",
-            "effect": [
-              {
-                "run_eoc_with": "EOC_hellfire_designate_target",
-                "variables": {
-                  "missile": "hellfire_agm_114r9x",
-                  "designator": "hellfire_designator_single_target"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
 
     "flags": ["ZERO_WEIGHT"]
   }
