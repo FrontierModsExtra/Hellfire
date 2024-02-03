@@ -58,10 +58,16 @@
     "type": "effect_on_condition",
 
     "condition": { "expects_vars": ["missile"] },
-    "effect": {
-      "map_spawn_item": { "context_val": "missile" },
-      "loc": { "global_val": "hellfire_strike_location" }
-    }
+    "effect": [
+      {
+        "map_spawn_item": { "context_val": "missile" },
+        "loc": { "global_val": "hellfire_strike_location" }
+      },
+      {
+        "set_string_var": "",
+        "target_var": { "global_val": "hellfire_strike_location" }
+      }
+    ]
   },
 
   {
